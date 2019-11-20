@@ -1,3 +1,11 @@
+
+
+<% if logged_in? %>
+
+<%= link_to "Log out", logout_path, method: :delete %>
+
+<p>ログイン中:<%= current_user.name %></p>
+
 <h1>タスク一覧</h1>
 
 <ul>
@@ -9,4 +17,9 @@
 
 <%= link_to "新規タスクの投稿", new_task_path %>
 
-<%= link_to "Sign up", signup_path %>
+<% else %>
+
+<%= redirect_to login_path %>
+
+
+<% end %>
